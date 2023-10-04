@@ -1,29 +1,32 @@
-const Banner = () => {
-  const bannerStyle = {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://i.ibb.co/y4BYwhF/Clothing.png')`,
+import React, { useState } from "react";
+const Banner = ({ searchQuery, setSearchQuery, handleSearchClick }) => {
+  const bannerImgStyle = {
+    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('https://i.ibb.co/9bwPXwG/Rectangle-4281.png')`,
     backgroundSize: "cover",
-    backgroundPosition: "center",
+    backgroundPosition: "0 0",
     backgroundRepeat: "no-repeat",
-    backgroundColor: "rgba(0, 0, 0, 1.9)",
-    opacity : "10"
+    opacity: "1",
   };
+
   return (
-    <div
-      className="h-[70vh] flex justify-center items-center"
-      style={bannerStyle}
-    >
+    <div className="h-[30vh] md:h-[60vh] flex flex-col justify-center items-center"
+      style={bannerImgStyle}>
+
       <div className="form-control">
-        <div
-          className="h-[70vh] flex justify-center items-center"
-        >
+        <div className="h-[60vh] flex justify-center items-center">
+
           <div className="form-control">
-            <div className="input-group">
+          <p className="text-center text-sm font-extrabold pb-3 lg:text-4xl md:text-3xl">I Grow By Helping People In Need</p>
+            <div className="text-center">
               <input
                 type="text"
-                placeholder="Search…"
-                className="input input-bordered"
-              />
-              <button className="btn btn-outline btn-accent">Accent</button>
+                placeholder="Search here...."
+                className="text-sm font-medium mb-2 px-5 py-2 rounded-md"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}/>
+              <button
+                onClick={handleSearchClick}
+                className="bg-[#35cec6] text-sm font-medium mb-2 px-5 py-2 rounded-md text-white">Search</button>
             </div>
           </div>
         </div>

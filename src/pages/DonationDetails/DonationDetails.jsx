@@ -4,11 +4,9 @@ import DonationInformation from "../DonationDetail/DonationInformation";
 
 const DonationData = () => {
     const [details, setDetails] = useState({});
-    
     const {id} = useParams();
-
+    
     const DonationDetails = useLoaderData();
-
     useEffect(() => {
         const findDetails = DonationDetails?.find(detail => detail.id == id);
         setDetails(findDetails);

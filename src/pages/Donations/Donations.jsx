@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import MyDonations from "./MyDonations";
 
-  const Donations = () => {
+const Donations = () => {
   const [donationInfo, setDonationInfo] = useState([]);
   const [emptyDonation, setEmptyDonation] = useState(false);
 
@@ -25,29 +25,23 @@ import MyDonations from "./MyDonations";
       ) : (
         <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          
-                  {
-                    isShowAllData? donationInfo
-                    .slice(0, 2)
-                    .map((donate, index) => (
-                      <MyDonations
-                        key={index}
-                        donate={donate}
-                      ></MyDonations>
-                    )):donationInfo.map((donate, index) => (
-                        <MyDonations key={index} donate={donate}></MyDonations>
-                      ))
-                  }
+            {isShowAllData
+              ? donationInfo
+                  .slice(0, 4)
+                  .map((donate, index) => (
+                    <MyDonations key={index} donate={donate}></MyDonations>
+                  ))
+              : donationInfo.map((donate, index) => (
+                  <MyDonations key={index} donate={donate}></MyDonations>
+                ))}
           </div>
           <div className="flex justify-center items-center text-center mt-10 no_show">
-            {isShowAllData && ( 
+            {isShowAllData && donationInfo.length > 4 && (
               <button
-                onClick={() => {
-                  setIsShowAllData(false); 
-                }}
-                className="bg-[#009444] text-sm font-medium mb-2 px-5 py-2 rounded-md text-white"
+                onClick={() => setIsShowAllData(!isShowAllData)}
+                className="bg-[#4ebe32] text-sm font-medium mb-2 px-5 py-2 rounded-md text-white"
               >
-                See All
+                {isShowAllData && "See more"}
               </button>
             )}
           </div>

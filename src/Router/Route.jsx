@@ -7,12 +7,8 @@ import Statistics from '../pages/Statistics/Statistics';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import DonationDetails from '../pages/DonationDetails/DonationDetails';
 
-
-
-
 const CreatedRoute = createBrowserRouter([
     {
-        
         path: '/',
         element: <MainLayout></MainLayout>,
         errorElement: <ErrorPage></ErrorPage>,
